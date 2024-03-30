@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './hero.component.html',
 
+
 })
 export class HeroComponent {
 
