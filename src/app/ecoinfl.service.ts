@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class EcoinflService {
+  User:any;
   url = 'http://localhost:9090/'
   constructor(private http: HttpClient) {
   }

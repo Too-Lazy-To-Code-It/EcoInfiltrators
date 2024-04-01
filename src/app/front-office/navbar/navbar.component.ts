@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { EcoinflService } from '../../ecoinfl.service';
 
 
 @Component({
@@ -11,6 +12,9 @@ import { RouterModule } from '@angular/router';
 
 })
 export class NavbarComponent {
+  constructor(public _service: EcoinflService) {
+    
+  }
   
 
 }
