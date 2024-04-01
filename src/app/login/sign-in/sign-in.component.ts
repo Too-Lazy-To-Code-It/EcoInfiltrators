@@ -1,13 +1,15 @@
+
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {RouterModule} from '@angular/router';
+import {Router, RouterModule} from '@angular/router';
+import { EcoinflService } from '../../ecoinfl.service';
 
 @Component({
   selector: 'app-sign-in',
   standalone: true,
   imports: [
     FormsModule,
-    RouterModule
+    RouterModule,
   ],
   templateUrl: './sign-in.component.html',
   styleUrl: '../sign-up/sign-up.component.css',
@@ -15,16 +17,26 @@ import {RouterModule} from '@angular/router';
 })
 export class SignInComponent {
   User:SignIn;
-  constructor()
+  constructor(public _service: EcoinflService,private router:Router)
   {
     this.User=new SignIn();
+  }
+  SignIn(){
+    // let myForm=new FormData();
+    // myForm.append('Email',this.User.Email);
+    // myForm.append('password',this.User.Password)
+    this._service.SignIn(this.User.Email,this.User.Password).subscribe((res:any)=>{
+      console.log(`Response ${res}`);
+      this.router.navigate(['/Home'])
+    },
+    err=>{console.log(`err ${err}`);})
   }
 
 }
 
 export class SignIn {
-  Email:String;
-  Password:String;
+  Email:string;
+  Password:string;
   constructor() {
     this.Email="";
     this.Password="";

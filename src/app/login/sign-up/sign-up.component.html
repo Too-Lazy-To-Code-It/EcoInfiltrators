@@ -4,14 +4,10 @@
             <div class="signup-content">
                 <div class="signup-form">
                     <h2 class="form-title">Sign up</h2>
-                    <form method="POST" class="register-form" id="register-form">
-                        <div class="form-group">
-                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input [(ngModel)]="User.Name" type="text" name="name" id="name" placeholder="Your Name" />
-                        </div>
+                    <form method="POST" (submit)="true" class="register-form" id="register-form">
                         <div class="form-group">
                             <label for="Uname"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input [(ngModel)]="User.Username" type="text" name="Uname" id="Uname" placeholder="Your Username" />
+                            <input [(ngModel)]="User.username" type="text" name="Uname" id="Uname" placeholder="Your Username" />
                         </div>
                         <div class="form-group">
                             <label for="email"><i class="zmdi zmdi-email"></i></label>
@@ -19,14 +15,18 @@
                         </div>
                         <div class="form-group">
                             <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                            <input [(ngModel)]="User.Password" type="password" name="pass" id="pass" placeholder="Password" />
+                            <input [(ngModel)]="User.password" type="password" name="pass" id="pass" placeholder="Password" />
                         </div>
                         <div class="form-group">
                             <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                            <input [(ngModel)]="User.Password" type="password" name="re_pass" id="re_pass" placeholder="Repeat your password" />
+                            <input [(ngModel)]="User.password" type="password" name="re_pass" id="re_pass" placeholder="Repeat your password" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Avatar"><i class="zmdi zmdi-lock-outline"></i></label>
+                            <input (change)="selectFile($event)" type="file" name="avatar" id="avatar"  />
                         </div>
                         <div class="form-group form-button">
-                            <input  routerLink="/signIn" type="submit" name="signup" id="signup" class="form-submit" value="Register" />
+                            <input  (click)='AddUser()' type="button" name="signup" id="signup" class="form-submit" value="Register" />
                         </div>
                     </form>
                 </div>

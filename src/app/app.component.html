@@ -1,16 +1,32 @@
+@if (shouldDisplayNavbar()) {
 <app-navbar></app-navbar>
 <app-hero></app-hero>
 @defer {
 <router-outlet></router-outlet>
 }
 @placeholder {
-    <h1>vrooom</h1>
+<h1>vrooom</h1>
 }
 @loading {
-    <h2>vrooommmmm</h2>
+<h2>vrooommmmm</h2>
 }
 @error {
-    <h1>Something went wrong oopsie</h1>
+<h1>Something went wrong oopsie</h1>
 }
-<app-footer></app-footer>
+<app-footer></app-footer>}
 
+@else{
+@defer {
+<router-outlet></router-outlet>
+}
+@placeholder {
+<h1>vrooom</h1>
+}
+@loading {
+<h2>vrooommmmm</h2>
+}
+@error {
+<h1>Something went wrong oopsie</h1>
+}
+
+}

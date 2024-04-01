@@ -18,7 +18,7 @@
                         <input [(ngModel)]=User.Password type="password" name="your_pass" id="your_pass" placeholder="Password" />
                     </div>
                     <div class="form-group form-button">
-                        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+                        <input (click)="SignIn()" type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
                     </div>
                 </form>
             </div>
