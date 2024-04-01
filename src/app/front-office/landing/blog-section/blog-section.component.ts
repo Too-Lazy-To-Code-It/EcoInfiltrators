@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { EcoinflService } from '../../../ecoinfl.service';
 
 @Component({
   selector: 'app-blog-section',
@@ -8,5 +9,14 @@ import { Component } from '@angular/core';
   styleUrl: './blog-section.component.css'
 })
 export class BlogSectionComponent {
+  constructor(public _service: EcoinflService) {
+    
+  }
+  Posts:any;
+  ngOnInit():void{
+    this._service.ShowPosts().subscribe((res:any)=>{
+      this.Posts=res;
+    })
+  }
 
 }

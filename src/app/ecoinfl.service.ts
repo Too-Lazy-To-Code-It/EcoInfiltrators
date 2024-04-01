@@ -16,4 +16,8 @@ export class EcoinflService {
     const body={Email,password}
     return this.http.post(this.url + 'user/signin',body)
   }
+  ShowPosts()
+  {
+    return this.http.get(this.url+'post/');
+  }
 }
