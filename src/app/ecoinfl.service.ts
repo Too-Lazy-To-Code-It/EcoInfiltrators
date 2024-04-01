@@ -20,4 +20,8 @@ export class EcoinflService {
   {
     return this.http.get(this.url+'post/');
   }
+  ShowNfts()
+  {
+    return this.http.get(this.url+'nft/');
+  }
 }

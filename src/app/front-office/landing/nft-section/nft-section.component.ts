@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EcoinflService } from '../../../ecoinfl.service';
 
 @Component({
   selector: 'app-nft-section',
@@ -8,5 +9,14 @@ import { Component } from '@angular/core';
   styleUrl: './nft-section.component.css'
 })
 export class NftSectionComponent {
+  constructor(public _service: EcoinflService) {
+    
+  }
+  Nfts:any;
+  ngOnInit():void{
+    this._service.ShowNfts().subscribe((res:any)=>{
+      this.Nfts=res;
+    })
+  }
 
 }
